@@ -1,6 +1,10 @@
+import { getMovies, getMovie, getSuggestions } from "./db.js"
+
 const resolvers = {
     Query: {
-        name: () => "dianakoh"
+        movies: (_, {limit, rating}) => getMovies(limit, rating),
+        movie: (_, {id}) => getMovie(id),
+        suggestions: (_, {id}) => getSuggestions(id)
     }
 };
 
